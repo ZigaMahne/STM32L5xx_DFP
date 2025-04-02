@@ -14,8 +14,9 @@
   </licenseSets>
 
   <releases>
-    <release version="2.0.1-dev">
+    <release version="2.0.2-dev">
       Active development ...
+      Updated documentation references
     </release>
     <release version="1.4.0" date="2021-11-26">
       Updated Pack to STM32CubeL5 Firmware Package version V1.4.0 (using HAL Drivers V1.0.4.):
@@ -1145,7 +1146,7 @@
         #define CMSIS_device_header "stm32l5xx.h"
       </RTE_Components_h>
       <files>
-        <file category="doc" name="https://github.com/Open-CMSIS-Pack/cmsis-toolbox/blob/main/docs/CubeMX.md"/>
+        <file category="doc" name="https://open-cmsis-pack.github.io/cmsis-toolbox/CubeMX"/>
       </files>
     </component>
 
