@@ -15,8 +15,10 @@
 
   <releases>
     <release version="2.0.2-dev">
-      Active development ...
+      Updated debug configuration files
       Updated documentation references
+      Package Description (pdsc):
+      - Shortened device family description
       Updated Templates:
       - Added DWARF-5 debug information
       - Added generated output files
