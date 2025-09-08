@@ -17,6 +17,9 @@
     <release version="2.0.2-dev">
       Active development ...
       Updated documentation references
+      Updated Templates:
+      - Added DWARF-5 debug information
+      - Added generated output files
     </release>
     <release version="1.4.0" date="2021-11-26">
       Updated Pack to STM32CubeL5 Firmware Package version V1.4.0 (using HAL Drivers V1.0.4.):
@@ -86,8 +89,7 @@
     <family Dfamily="STM32L5 Series" Dvendor="STMicroelectronics:13">
       <processor Dcore="Cortex-M33" DcoreVersion="r0p0" Dfpu="SP_FPU" Dmpu="MPU" Ddsp="DSP" Dtz="TZ" Dendian="Little-endian" Dclock="110000000"/>
       <description>
-     The ARM Cortex-M33 is the most configurable of all Cortex-M processors.
-     It is a full featured microcontroller class processor based on the ARMv8-M mainline architecture with ARM TrustZone security.
+Ultra-low-power STM32L5 MCUs with Arm Cortex-M33 core, MPU, cache, DSP, FPU, TrustZone, 156 DMIPS at 110 MHz.
       </description>
       <book name="https://developer.arm.com/documentation/100235/latest/" title="Arm Cortex-M33 Devices"/>
       <book name="https://www.st.com/resource/en/reference_manual/rm0438-stm32l552xx-and-stm32l562xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf" title="STM32L552xx and STM32L562xx Reference Manual"/>
@@ -97,11 +99,11 @@
       <algorithm name="CMSIS/Flash/STM32L562E_DK_MX25L51245G.FLM"   start="0x90000000" size="0x04000000" RAMstart="0x20000000" RAMsize="0x8000" default="0" />
       <algorithm name="CMSIS/Flash/STM32L5x_OPT.FLM"                start="0x1FF00000" size="0x00000030" RAMstart="0x20000000" RAMsize="0x8000" default="0"/>
 
-      <debugvars configfile="CMSIS/Debug/STM32L552xx_562xx.dbgconf" version="1.0.0">
+      <debugvars configfile="CMSIS/Debug/STM32L552xx_562xx.dbgconf" version="1.0.1">
         __var DbgMCU_CR       = 0x00000006;   // DBGMCU_CR: DBG_STOP, DBG_STANDBY
-        __var DbgMCU_APB1L_Fz = 0x00000000;   // DGBMCU_APB1L_FZ: All Peripherals Operate as in Normal Mode
-        __var DbgMCU_APB1H_Fz = 0x00000000;   // DGBMCU_APB1H_FZ: All Peripherals Operate as in Normal Mode
-        __var DbgMCU_APB2_Fz  = 0x00000000;   // DGBMCU_APB2_FZ : All Peripherals Operate as in Normal Mode
+        __var DbgMCU_APB1L_Fz = 0x80E0183F;   // DGBMCU_APB1L_FZ: Configure APB1L peripheral freeze behavior
+        __var DbgMCU_APB1H_Fz = 0x00000062;   // DGBMCU_APB1H_FZ: Configure APB1H peripheral freeze behavior
+        __var DbgMCU_APB2_Fz  = 0x00072800;   // DGBMCU_APB2_FZ : Configure APB2 peripheral freeze behavior
         __var TraceClk_Pin    = 0x00040002;   // PE2
         __var TraceD0_Pin     = 0x00020009;   // PC9
         __var TraceD1_Pin     = 0x0002000A;   // PC10
@@ -1119,6 +1121,7 @@
       </subFamily>
 
     </family>
+
   </devices>
 
   <conditions>
@@ -1149,7 +1152,6 @@
         <file category="doc" name="https://open-cmsis-pack.github.io/cmsis-toolbox/CubeMX"/>
       </files>
     </component>
-
   </components>
 
   <csolution>
@@ -1162,7 +1164,5 @@
     <template name="CubeMX TrustZone solution" path="Templates/CubeMX_TZ" file="CubeMX_TZ.csolution.yml" condition="STM32L5">
       <description>Create a CubeMX TrustZone solution with secure and non-secure projects</description>
     </template>
-
   </csolution>
-
 </package>
